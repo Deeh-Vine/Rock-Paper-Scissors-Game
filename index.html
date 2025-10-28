@@ -74,7 +74,6 @@
       border-width: 3px;
       font-size: 1.2rem;
       padding: 10px 20px;
-      margin: 10px;
       cursor: pointer;
       transition: transform 0.3s;
     }
@@ -120,7 +119,7 @@
       width: 5rem;
     }
     .play{
-      margin-top: 60px;
+      margin-top: 2rem;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
@@ -149,11 +148,64 @@
       box-shadow: 4px 4px 15px rgba(255, 99, 26, 0.9);
     }
     .game-info{
-      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
       font-size: 1.5rem;
       color: white;
       text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.8);
     }
+    .move-emoji{
+      height: 3rem;
+      width: 3rem;
+      vertical-align: middle;
+    }
+    .result{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background-color: rgb(196, 248, 248, 0.3);
+      border-radius: 8px;
+      padding: 10px;
+      width: 50%;
+      height:2.3rem;
+      font-weight: bolder;
+
+    }
+    .moves{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      background-color: rgb(196, 248, 248, 0.3);
+      border-radius: 8px;
+      padding: 10px;
+      width: 75%;
+      height:2.3rem;
+    }
+    .game-result{
+      display: flex;
+      white-space: nowrap;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      background-color: rgb(196, 248, 248, 0.3);
+      border-radius: 8px;
+      padding: 10px;
+      height:2.3rem;
+      border-style: solid;
+      border-color: antiquewhite;
+    }
+
   </style>
 </head>
 <body>
@@ -171,9 +223,9 @@
     </div>
 
     <div class="game-info">
-      <p class="moves"></p>
-      <p class="result"></p>
-      <p class="game-result"></p>
+      <div class="result"><p></p></div>
+      <div class="moves"><p></p></div>
+      <div class="game-result"><p></p></div>
     </div>
       
     <!-- Reset button to clear game scores -->
@@ -212,30 +264,24 @@
       let result = '';
 
       // Determine the winner based on moves
-      if (playerMove === 'Rock') {
-        if (computerMove === 'Rock') result = 'you have a tie 🤏';
-        if (computerMove === 'Paper') result = 'you lose 😔';
-        if (computerMove === 'Scissors') result = 'you Win 🎉';
+      if (playerMove === computerMove) {
+        result = 'you have a tie 🤏';
+        score.draws++;
       }
-
-      if (playerMove === 'Paper') {
-        if (computerMove === 'Paper') result = 'you have a tie 🤏';
-        if (computerMove === 'Scissors') result = 'you lose 😔';
-        if (computerMove === 'Rock') result = 'you Win 🎉';
+      else if (
+        (playerMove === 'Rock' && computerMove === 'Scissors') || 
+        (playerMove === 'Paper' && computerMove === 'Rock') || 
+        (playerMove === 'Scissors' && computerMove === 'Paper')) {
+        result = 'you Win 🎉';
+        score.wins++;
+      } 
+      else {
+        result = 'you lose 😔';
+        score.losses++;
       }
-
-      if (playerMove === 'Scissors') {
-        if (computerMove === 'Scissors') result = 'you have a tie 🤏';
-        if (computerMove === 'Rock') result = 'you lose 😔';
-        if (computerMove === 'Paper') result = 'you Win 🎉';
-      }
+      
 
       console.log(result);
-
-      // Update score object based on result
-      if (result === 'you Win 🎉') score.wins++;
-      if (result === 'you have a tie 🤏') score.draws++;
-      if (result === 'you lose 😔') score.losses++;
 
       console.log(score);
 
@@ -244,8 +290,8 @@
 
       // Show result in an alert
 
-      document.querySelector('.moves').innerHTML = `you played: ${playerMove} - computer played: ${computerMove} `;
-      document.querySelector('.result').innerHTML = `Result: ${result} `;
+      document.querySelector('.moves').innerHTML = `you played: <img src="images-icons/${playerMove}-emoji.png" alt="${playerMove}" class="move-emoji">  computer played: <img src="images-icons/${computerMove}-emoji.png" alt="${computerMove}" class="move-emoji">`;
+      document.querySelector('.result').innerHTML = ` ${result} `;
       gameResultElements ();
     };
 
