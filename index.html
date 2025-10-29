@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Paper Scissors</title>
+  <title>Rock paper scissors</title>
   <style>
     :root{
       font-size: 20px;
@@ -221,10 +221,10 @@
     <div class="title"><h1>Rock Paper Scissors</h1>
     </div>
     <div class="play"> <!-- Buttons that trigger playGame() with the chosen move --> 
-      <button onclick="playGame('Rock')" class="game-buttons">
-        <img src="images-icons/Rock-emoji.png" alt="" ><span class="tooltip-text">play Rock</span></button>
-      <button onclick="playGame('Paper')" class="game-buttons"><img src="images-icons/Paper-emoji.png" alt=""><span class="tooltip-text">play Paper</span></button>
-      <button onclick="playGame('Scissors')" class="game-buttons"><img src="images-icons/Scissors-emoji.png" alt=""><span class="tooltip-text">play Scissors</span></button>
+      <button onclick="playGame('rock')" class="game-buttons">
+        <img src="images-icons/rock-emoji.png" alt="" ><span class="tooltip-text">Play rock</span></button>
+      <button onclick="playGame('paper')" class="game-buttons"><img src="images-icons/paper-emoji.png" alt=""><span class="tooltip-text">Play Paper</span></button>
+      <button onclick="playGame('scissors')" class="game-buttons"><img src="images-icons/scissors-emoji.png" alt=""><span class="tooltip-text">Play Scissors</span></button>
     </div>
 
     <div class="game-info">
@@ -256,11 +256,11 @@
       // Generate random computer move
       const randomNumber = Math.random();
       if (randomNumber <= 1 / 3) {
-        computerMove = 'Rock';
+        computerMove = 'rock';
       } else if (randomNumber < 2 / 3 && randomNumber >= 1 / 3) {
-        computerMove = 'Paper';
+        computerMove = 'paper';
       } else {
-        computerMove = 'Scissors';
+        computerMove = 'scissors';
       }
 
       console.log(`computer move: ${computerMove}`);
@@ -274,9 +274,9 @@
         score.draws++;
       }
       else if (
-        (playerMove === 'Rock' && computerMove === 'Scissors') || 
-        (playerMove === 'Paper' && computerMove === 'Rock') || 
-        (playerMove === 'Scissors' && computerMove === 'Paper')) {
+        (playerMove === 'rock' && computerMove === 'scissors') || 
+        (playerMove === 'paper' && computerMove === 'rock') || 
+        (playerMove === 'scissors' && computerMove === 'paper')) {
         result = 'you Win 🎉';
         score.wins++;
       } 
