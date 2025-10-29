@@ -167,13 +167,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      white-space: nowrap;
+      flex: 1;
+      min-width: 70%;
       font-size: 2rem;
       margin-bottom: 1rem;
       background-color: rgb(196, 248, 248, 0.3);
       border-radius: 8px;
       padding: 10px;
-      width: 50%;
-      height:2.3rem;
+      height:2.5rem;
       font-weight: bolder;
 
     }
@@ -182,19 +184,22 @@
       flex-direction: row;
       justify-content: space-evenly;
       align-items: center;
+      flex: 1;
       margin-bottom: 1rem;
       margin-top: 1rem;
       background-color: rgb(196, 248, 248, 0.3);
       border-radius: 8px;
+      min-width: 70%;
       padding: 10px;
-      width: 75%;
-      height:2.3rem;
+      height:2.7rem;
     }
     .game-result{
       display: flex;
       white-space: nowrap;
       justify-content: center;
       align-items: center;
+      flex: 1;
+      min-width: 70%;
       font-size: 1.5rem;
       font-weight: bold;
       margin-top: 1rem;
@@ -217,9 +222,9 @@
     </div>
     <div class="play"> <!-- Buttons that trigger playGame() with the chosen move --> 
       <button onclick="playGame('Rock')" class="game-buttons">
-        <img src="images-icons/rock-emoji.png" alt="" ><span class="tooltip-text">play Rock</span></button>
-      <button onclick="playGame('Paper')" class="game-buttons"><img src="images-icons/paper-emoji.png" alt=""><span class="tooltip-text">play Paper</span></button>
-      <button onclick="playGame('Scissors')" class="game-buttons"><img src="images-icons/scissors-emoji.png" alt=""><span class="tooltip-text">play Scissors</span></button>
+        <img src="images-icons/Rock-emoji.png" alt="" ><span class="tooltip-text">play Rock</span></button>
+      <button onclick="playGame('Paper')" class="game-buttons"><img src="images-icons/Paper-emoji.png" alt=""><span class="tooltip-text">play Paper</span></button>
+      <button onclick="playGame('Scissors')" class="game-buttons"><img src="images-icons/Scissors-emoji.png" alt=""><span class="tooltip-text">play Scissors</span></button>
     </div>
 
     <div class="game-info">
